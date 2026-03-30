@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mano Derecha | Socio Digital de Fierro en Lanús</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    :root {
+      --c-accent: #2563EB; --c-accent-dark: #1d4ed8; --c-dark: #0F172A; --c-bg: #0F172A;
+      --c-card: rgba(255, 255, 255, 0.05); --radius: 20px;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--c-bg); color: #fff; scroll-behavior: smooth; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* HEADER */
+    header { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+    .logo { font-family: 'Plus Jakarta Sans'; font-weight: 800; font-size: 1.5rem; text-decoration: none; color: #fff; }
+    .logo span { color: var(--c-accent); }
+
+    /* HERO */
+    .hero { padding: 150px 0 100px; text-align: center; background: radial-gradient(circle at top right, #1e3a8a, transparent); }
+    .hero h1 { font-family: 'Plus Jakarta Sans'; font-size: clamp(3rem, 8vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+    .badge { background: rgba(37, 99, 235, 0.2); color: #60a5fa; padding: 8px 16px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; }
+
+    /* CARDS MODERNAS: TRES PLANES */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; }
+    .card { 
+      background: var(--c-card); border: 1px solid rgba(255,255,255,0.1); 
+      border-radius: var(--radius); padding: 40px; transition: 0.4s; position: relative; overflow: hidden;
+      display: flex; flex-direction: column; text-align: center;
+    }
+    .card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.08); border-color: var(--c-accent); }
+    .plan-icon { font-size: 3.5rem; color: var(--c-accent); margin-bottom: 20px; animation: pulsate 2s infinite; }
+    @keyframes pulsate { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+    .card h3 { font-family: 'Plus Jakarta Sans'; font-size: 1.8rem; margin-bottom: 15px; }
+    .price { font-size: 2.5rem; font-weight: 800; margin: 20px 0; color: #60a5fa; flex-grow: 1; }
+    .price span { font-size: 1rem; opacity: 0.6; }
+
+    /* TESTIMONIOS */
+    .testimonials { padding: 100px 0; text-align: center; }
+    .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+    .test-card { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); text-align: left; }
+    .test-card p { font-style: italic; opacity: 0.8; margin-bottom: 20px; font-size: 0.95rem; }
+    .user-info { display: flex; align-items: center; gap: 15px; }
+    .user-info img { width: 50px; height: 50px; border-radius: 50%; background: #eee; }
+
+    /* BOTONES */
+    .btn { padding: 18px 36px; border-radius: 12px; font-weight: 700; text-decoration: none; display: inline-block; cursor: pointer; transition: 0.3s; border: none; font-size: 1rem; text-align: center; }
+    .btn-primary { background: var(--c-accent); color: white; width: 100%; }
+    .btn-secondary { background: #0088cc; color: white; width: 100%; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+
+    /* FORMULARIO */
+    .contact-section { padding: 100px 0; background: #0b1120; }
+    .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: #1e293b; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    @media (max-width: 850px) { .contact-wrapper { grid-template-columns: 1fr; } }
+    input, select, textarea { width: 100%; padding: 16px; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; margin-bottom: 20px; font-family: inherit; }
+
+    /* FOOTER */
+    footer { background: #0b1120; padding: 80px 0 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px; }
+    .footer-col h4 { font-family: 'Plus Jakarta Sans'; margin-bottom: 20px; color: #fff; }
+    .footer-col a { text-decoration: none; color: rgba(255,255,255,0.7); display: block; margin-bottom: 12px; font-size: 0.9rem; }
+    .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+    .social-icons a { font-size: 1.3rem; color: rgba(255,255,255,0.5); }
+
+    .floating-wa { position: fixed; bottom: 30px; right: 30px; background: #22c55e; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: #fff; z-index: 999; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="#" class="logo">MANO <span>DERECHA.</span></a>
+      <div style="display: flex; gap: 15px;">
+        <a href="#servicios" style="color:#fff; text-decoration:none; font-weight:600; font-size:0.9rem;">Planes</a>
+        <a href="#contacto" class="btn" style="background:rgba(255,255,255,0.1); padding: 10px 20px;">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="badge">🚀 AGENCIA DE DIGITALIZACIÓN #1 EN LANÚS</span>
+      <h1>Vendedor 24/7 en tu Negocio.</h1>
+      <p style="max-width: 600px; margin: 20px auto 40px; opacity: 0.7; font-size: 1.2rem;">Automatizamos tu local para que vos te ocupes de lo que importa: facturar.</p>
+      <a href="#servicios" class="btn btn-primary" style="width: auto;">Ver Planes de Fierro</a>
+    </div>
+  </section>
+
+  <section class="container section" id="servicios">
+    <div class="services-grid">
+      <div class="card">
+        <i class="fas fa-store plan-icon"></i>
+        <h3>Vidriera de Fierro</h3>
+        <p>Tu local abierto siempre en Google.</p>
+        <div class="price">$20.000 <span>/mes</span></div>
+        <ul style="list-style:none; margin-bottom:30px; opacity:0.8; line-height:2.2; font-size:0.9rem;">
+          <li>✅ Hosting y Dominio .com.ar</li>
+          <li>✅ Diseño Pro para Celulares</li>
+          <li>✅ Formulario directo a tu Telegram</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Consultar</a>
+      </div>
+
+      <div class="card" style="border-color: var(--c-accent); background: rgba(37, 99, 235, 0.05);">
+        <i class="fas fa-robot plan-icon" style="color:var(--c-accent);"></i>
+        <span style="position:absolute; top:20px; right:20px; background:var(--c-accent); font-size:0.7rem; padding:4px 10px; border-radius:5px;">MÁS PEDIDO</span>
+        <h3>Bot de Barrio</h3>
+        <p>Inteligencia en Telegram que da turnos por vos.</p>
+        <div class="price">$30.000 <span>/mes</span></div>
+        <ul style="list-style:none; margin-bottom:30px; opacity:0.8; line-height:2.2; font-size:0.9rem;">
+          <li>✅ Agendado automático</li>
+          <li>✅ 10% OFF para vecinos</li>
+          <li>✅ Base de datos de clientes</li>
+        </ul>
+        <a href="https://t.me/Telodigo_Bot?start=bot" class="btn btn-secondary" target="_blank"> <i class="fab fa-telegram"></i> Agendar Turno </a>
+      </div>
+
+      <div class="card">
+        <i class="fas fa-chart-line plan-icon"></i>
+        <h3>Combo Patrón</h3>
+        <p>Web + Bot + Reporte. Todo incluído.</p>
+        <div class="price">$50.000 <span>/mes</span></div>
+        <ul style="list-style:none; margin-bottom:30px; opacity:0.8; line-height:2.2; font-size:0.9rem;">
+          <li>✅ Vidriera Digital Completa</li>
+          <li>✅ Bot de Telegram</li>
+          <li>✅ Reporte mensual de clientes</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary">Quiero Todo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2 style="font-family:'Plus Jakarta Sans'; font-size: 2.5rem;">Voces conformes del barrio</h2>
+      <div class="test-grid">
+        <div class="test-card"><p>"Antes me volvía loco con el WhatsApp, ahora el bot hace todo solo y yo laburo tranquilo."</p><div class="user-info"><img src="https://randomuser.me/api/portraits/men/32.jpg"><div><h5 style="color:#fff;">Tano Barber</h5><span style="opacity:0.6; font-size:0.8rem;">Lanús Oeste</span></div></div></div>
+        <div class="test-card"><p>"La vidriera digital me trajo clientes nuevos que no me conocían. El aviso es al toque."</p><div class="user-info"><img src="https://randomuser.me/api/portraits/women/44.jpg"><div><h5 style="color:#fff;">Gaby Estética</h5><span style="opacity:0.6; font-size:0.8rem;">Gerli</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contacto">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div>
+          <h2 style="margin-bottom: 20px;">Hablemos de tu Negocio</h2>
+          <form id="contact-form">
+            <input type="text" name="nombre" placeholder="Tu Nombre o Local" required>
+            <input type="tel" name="whatsapp" placeholder="Tu WhatsApp" required>
+            <select name="servicio"><option value="Web">Vidriera Digital</option><option value="Bot">Bot con IA</option><option value="Full">Combo Patrón</option></select>
+            <textarea name="mensaje" rows="4" placeholder="¿Qué necesitás digitalizar?"></textarea>
+            <button type="submit" class="btn btn-primary">Enviar a Pedro 🚀</button>
+          </form>
+        </div>
+        <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13123.633190886532!2d-58.39750013897825!3d-34.681111161394594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb4435b67a49%3A0xc3f9829e0617300c!2sLan%C3%BAs%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1709405760123" 
+  width="100%" 
+  height="100%" 
+  style="border:0; border-radius: 20px; min-height: 350px;" 
+  allowfullscreen="" 
+  loading="lazy" 
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/1144940576" class="floating-wa"><i class="fab fa-whatsapp"></i></a>
+
+  <footer>
+    <div class="container"><div class="footer-grid"><div class="footer-col"><a href="#" class="logo">MANO <span>DERECHA.</span></a><p style="opacity:0.6; font-size:0.85rem; margin-top:10px;">Automatización de Fierro.</p></div><div class="footer-col"><h4>Planes</h4><a href="#servicios">Vidriera</a><a href="#servicios">Bot</a><a href="#servicios">Patrón</a></div><div class="footer-col"><h4>Empresa</h4><a href="#contacto">Contacto</a>
+    <a href="#" onclick="alert('🔒 Usá tu llave secreta en la consola del navegador');">Panel Admin</a>
+    </div><div class="footer-col"><h4>Redes</h4><a href="https://t.me/Telodigo_Bot" class="btn btn-secondary" style="font-size:0.8rem; padding: 10px; width: auto;" target="_blank"><i class="fab fa-telegram"></i> Bot</a><div class="social-icons"><a href="https://instagram.com/ManoDerecha" target="_blank"><i class="fab fa-instagram"></i></a><a href="https://facebook.com/ManoDerecha" target="_blank"><i class="fab fa-facebook"></i></a></div></div></div><div style="text-align:center; padding-top:40px; border-top:1px solid rgba(255,255,255,0.05); font-size:0.75rem; opacity:0.4;">© 2026 Mano Derecha Digital. Lanús.</div></div>
+  </footer>
+
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button');
+      btn.innerText = "Enviando...";
+      btn.disabled = true;
+      const formData = new FormData(this);
+      fetch('/api/consulta_web', { method: 'POST', body: formData })
+      .then(res => res.json())
+      .then(data => {
+        alert("✅ ¡Perfecto! Pedro ya recibió tu consulta en su Telegram.");
+        this.reset(); btn.innerText = "Enviar a Pedro 🚀"; btn.disabled = false;
+      })
+      .catch(err => {
+        alert("❌ Error. Servidor apagado.");
+        btn.disabled = false;
+      });
+    });
+  </script>
+</body>
+</html>
